@@ -1,4 +1,4 @@
-# React + Aleo + Leo
+# React + Aleo + Leo (Hamp explorer)
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/AleoHQ/sdk/tree/testnet3/create-aleo-app/template-react)
 
@@ -61,9 +61,31 @@ Aleo programs deployed require unique names, make sure to edit the program's nam
 
 2. (Optional) Provide a fee record manually (located in commented code within `worker.js`)
 
+   If you have issues like I had with CORS policy, there are 2 possibilities
+    
+    - Either you are using the depreciated endpoint: https://vm.aleo.org/api/testnet3/
+    ![App Screenshot](https://i.imgur.com/r6RA1rV.jpg)
+
+   - Or the original one is in maintenance: https://api.explorer.aleo.org/v1
+    ![App Screenshot](https://i.imgur.com/lXKo22I.jpg)
+
+The solution is, thanks to Hamp, using his/her explorer. Basically, change the endpoint to Hamp's:
+
+```bash
+  const networkClient = new AleoNetworkClient("https://explorer.hamp.app/");
+
+&
+
+  const programManager = new ProgramManager(
+    "https://explorer.hamp.app",
+    keyProvider,
+    recordProvider,
+  );
+```
+
    If you do not provide a manual fee record, the SDK will attempt to scan for a record starting at the latest block. A simple way to speed this up would be to make a public transaction to this account right before deploying.
    
-3. Run the web app and hit the deploy button
+4. Run the web app and hit the deploy button
 
 ## Production deployment
 
