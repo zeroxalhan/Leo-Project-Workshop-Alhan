@@ -1,4 +1,4 @@
-program helloworld_testtzu.aleo;
+program alhancodeboi.aleo;
 
 
 

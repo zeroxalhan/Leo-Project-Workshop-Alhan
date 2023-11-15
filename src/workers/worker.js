@@ -39,18 +39,18 @@ async function deployProgram(program) {
   // Thanks to Hamp: https://discord.com/channels/700454073459015690/998986493999726632/1173638409873522760
 
   // Create a record provider that will be used to find records and transaction data for Aleo programs
-  const networkClient = new AleoNetworkClient("https://explorer.hamp.app/");
+  const networkClient = new AleoNetworkClient("https://api.explorer.aleo.org/v1");
 
   // Use existing account with funds
   const account = new Account({
-    privateKey: "user1PrivateKey (I removed this part)",
+    privateKey: "APrivateKey1zkp2RjaMm7xhxBxwewHF1qSUVCHQTd8jouhSJF8ysuCPL1v",
   });
 
   const recordProvider = new NetworkRecordProvider(account, networkClient);
 
   // Initialize a program manager to talk to the Aleo network with the configured key and record providers
   const programManager = new ProgramManager(
-    "https://explorer.hamp.app",
+    "https://api.explorer.aleo.org/v1",
     keyProvider,
     recordProvider,
   );
